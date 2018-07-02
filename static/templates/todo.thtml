@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Specification</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        [{meta.html.navigation}:<a href="{file}.html">{name}</a>]
+      </nav>
+
+			<h1>TODO</h1>
+
+      <div class="svg">
+        <svg width="1200" height="700">
+          %%(draw-gantt "../knowledge/todo.tree" "plan_A" 1200 700)%%
+        </svg>
+      </div>
+
+      %%(yandex-counter)%%
+
+    </div>
+  </body>
+</html>

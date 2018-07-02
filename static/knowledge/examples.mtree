@@ -1,0 +1,32 @@
+root.
+	intro
+		text:"Various less abstract examples of translation from PD to AF."
+		<.>
+	translation_examples.
+		raf-mek-erk
+			descr:"RAF-MEK-ERK"
+			folder:"raf-mek-erk"
+			rule:1
+			pd-coors:`(RAF macromolecule q:2-1) (MEK1 macromolecule name:MEK state:empty q:1-2) (MEK2 macromolecule name:MEK state:PP q:3-2) (ERK1 macromolecule name:ERK state:empty q:2-3) (ERK2 macromolecule name:ERK state:PP q:4-3)`
+			pd:`(RAF catalysis p1) (MEK1 (process p1) MEK2) (MEK2 catalysis p2) (ERK1 (process p2) ERK2)`
+			af-coors:`(RAF biological-activity q:1-1) (MEK biological-activity q:1-2) (ERK biological-activity q:1-3)`
+			af:`(RAF positive-influence MEK) (MEK positive-influence ERK)`
+			<.>
+		ubc9_c-foss
+			descr:"ubc9 and cfoss with hidden inhibition"
+			folder:"ubc9-cfoss"
+			rule:2
+			pd-coors:`(ubc9 macromolecule q:2-1) (elk-1-1 macromolecule name:elk-1 state:sumo p:empty q:1-2) (elk-1-2 macromolecule name:elk-1 state:empty p:empty q:3-2) (elk-1-3 macromolecule name:elk-1 state:empty p:P q:5-2) (erk macromolecule q:4-1) (s1 source-and-sink q:6-1) (c-fos macromolecule q:6-3)`
+			pd:`(elk-1-1 (process p1) elk-1-2) (elk-1-2 (process p2) elk-1-3) (elk-1-3 (process p3) elk-1-2) (elk-1-2 (process p4) elk-1-1) (s1 (process p5) c-fos) (ubc9 catalysis p1) (erk catalysis p2) (elk-1-3 necessary-stimulation p5)`
+			af-coors:`(ubc9 biological-activity q:1-1) (elk-1 biological-activity q:3-1) (erk biological-activity q:5-1) (c-fos biological-activity q:3-2)`
+			af:`(ubc9 negative-influence elk-1) (erk positive-influence elk-1) (elk-1 positive-influence c-fos)`
+			<.>
+		iNOS
+			descr:"IFNG-receptor signal path that leads to production of NO-synthase and subsequent synthesis of NO in metabolic reactions cycle in the plant cell"
+			folder:"inos"
+			rule:4
+			diagram-files-in-folder:<t>
+			; af-coors:`(ubc9 biological-activity q:1-1) (elk-1 biological-activity q:3-1) (erk biological-activity q:5-1) (c-fos biological-activity q:3-2)`
+			; af:`(ubc9 negative-influence elk-1) (erk positive-influence elk-1) (elk-1 positive-influence c-fos)`
+			<.>
+

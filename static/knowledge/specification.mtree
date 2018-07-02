@@ -1,0 +1,238 @@
+root.
+	color_codes.
+		Red d:"Actionable, TODOs, changes for the next version of the Doc" <.>
+		Blue d:"To move to the website" <.>
+		Green d:"Done, moved to the website" <.>
+		Brown d:"Changes to the text, knowledge file to be updated with this selected fragment" <.>
+	intro.
+		Intro text:"Here is the detailed specification for the translation rules"
+		<.>
+	translation_rules.
+		; signal_pathways
+		i-sti-i
+			folder:"i-sti-i"
+			rule:1
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		i-cat-i
+			folder:"i-cat-i"
+			rule:2
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C catalysis p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		i-nsti-i
+			folder:"i-nsti-i"
+			rule:3
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C necessary-stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C necessary-stimulation A))`
+			<.>
+		i-mod-i
+			folder:"i-mod-i"
+			rule:4
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C modulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C unknown-influence A))`
+			<.>
+		i-inh-i
+			folder:"i-inh-i"
+			rule:5
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C inhibition p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C negative-influence A))`
+			<.>
+		
+		i-sti-a
+			folder:"i-sti-a"
+			rule:6
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive q:1-2) (A2 macromolecule name:A state:active q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		i-cat-a
+			folder:"i-cat-a"
+			rule:7
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive q:1-2) (A2 macromolecule name:A state:active q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C catalysis p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		i-nsti-a
+			folder:"i-nsti-a"
+			rule:8
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive q:1-2) (A2 macromolecule name:A state:active q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C necessary-stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C necessary-stimulation A))`
+			<.>
+		i-mod-a
+			folder:"i-mod-a"
+			rule:9
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive q:1-2) (A2 macromolecule name:A state:active q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C modulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C unknown-influence A))`
+			<.>
+		i-inh-a
+			folder:"i-inh-a"
+			rule:10
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive q:1-2) (A2 macromolecule name:A state:active q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C inhibition p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C negative-influence A))`
+			<.>
+		
+		a-sti-i
+			folder:"a-sti-i"
+			rule:11
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active q:1-2) (A2 macromolecule name:A state:inactive q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C negative-influence A))`
+			<.>
+		a-cat-i
+			folder:"a-cat-i"
+			rule:12
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active q:1-2) (A2 macromolecule name:A state:inactive q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C catalysis p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C negative-influence A))`
+			<.>
+		a-nsti-i
+			folder:"a-nsti-i"
+			rule:13
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active q:1-2) (A2 macromolecule name:A state:inactive q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C necessary-stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C negative-influence A))`
+			<.>
+		a-mod-i
+			folder:"a-mod-i"
+			rule:14
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active q:1-2) (A2 macromolecule name:A state:inactive q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C modulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C unknown-influence A))`
+			<.>
+		a-inh-i
+			folder:"a-inh-i"
+			rule:15
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active q:1-2) (A2 macromolecule name:A state:inactive q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C inhibition p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		
+		a-sti-a
+			folder:"a-sti-a"
+			rule:16
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active1 q:1-2) (A2 macromolecule name:A state:active2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A1 biological-activity name:A-active1 q:1-2) (A2 biological-activity name:A-active2 q:3-2) (C biological-activity q:2-1) (C negative-influence A1) (C positive-influence A2))`
+			<.>
+		a-cat-a
+			folder:"a-cat-a"
+			rule:17
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active1 q:1-2) (A2 macromolecule name:A state:active2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C catalysis p1))`
+			af-full:`(default:compartment (A1 biological-activity name:A-active1 q:1-2) (A2 biological-activity name:A-active2 q:3-2) (C biological-activity q:2-1) (C negative-influence A1) (C positive-influence A2))`
+			<.>
+		a-nsti-a
+			folder:"a-nsti-a"
+			rule:18
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active1 q:1-2) (A2 macromolecule name:A state:active2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C necessary-stimulation p1))`
+			af-full:`(default:compartment (A1 biological-activity name:A-active1 q:1-2) (A2 biological-activity name:A-active2 q:3-2) (C biological-activity q:2-1) (C negative-influence A1) (C necessary-stimulation A2))`
+			<.>
+		a-mod-a
+			folder:"a-mod-a"
+			rule:19
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active1 q:1-2) (A2 macromolecule name:A state:active2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C modulation p1))`
+			af-full:`(default:compartment (A1 biological-activity name:A-active1 q:1-2) (A2 biological-activity name:A-active2 q:3-2) (C biological-activity q:2-1) (C unknown-influence A1) (C unknown-influence A2))`
+			<.>
+		a-inh-a
+			folder:"a-inh-a"
+			rule:20
+			pd-full:`(default:compartment (A1 macromolecule name:A state:active1 q:1-2) (A2 macromolecule name:A state:active2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C inhibition p1))`
+			af-full:`(default:compartment (A1 biological-activity name:A-active1 q:1-2) (A2 biological-activity name:A-active2 q:3-2) (C biological-activity q:2-1) (C positive-influence A1) (C negative-influence A2))`
+			<.>
+			
+		o-sti-i
+			folder:"o-sti-i"
+			rule:21
+			pd-full:`(default:compartment (A1 source-and-sink q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		o-cat-i
+			folder:"o-cat-i"
+			rule:22
+			pd-full:`(default:compartment (A1 source-and-sink q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		o-nsti-i
+			folder:"o-nsti-i"
+			rule:23
+			pd-full:`(default:compartment (A1 source-and-sink q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		o-mod-i
+			folder:"o-mod-i"
+			rule:24
+			pd-full:`(default:compartment (A1 source-and-sink q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		o-inh-i
+			folder:"o-inh-i"
+			rule:25
+			pd-full:`(default:compartment (A1 source-and-sink q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+
+		o-sti-a
+			folder:"o-sti-a"
+			rule:26
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		o-cat-a
+			folder:"o-cat-a"
+			rule:27
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C catalysis p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C positive-influence A))`
+			<.>
+		o-nsti-a
+			folder:"o-nsti-a"
+			rule:28
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C necessary-stimulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C necessary-stimulation A))`
+			<.>
+		o-mod-a
+			folder:"o-mod-a"
+			rule:29
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C modulation p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C unknown-influence A))`
+			<.>
+		o-inh-a
+			folder:"o-inh-a"
+			rule:30
+			pd-full:`(default:compartment (A1 macromolecule name:A state:inactive1 q:1-2) (A2 macromolecule name:A state:inactive2 q:3-2) (C macromolecule q:2-1) (A1 (process p1) A2) (C inhibition p1))`
+			af-full:`(default:compartment (A biological-activity q:2-2) (C biological-activity q:2-1) (C negative-influence A))`
+			<.>			
+			
+			; TODO proceed from here
+		
+	; metabolic_pathways
+		m-mod-m
+			folder:"m-mod-m"
+			rule:31
+			pd-full:`(default:compartment (A simple-chemical q:1-2) (B simple-chemical q:3-2) (C macromolecule q:2-1) (A (process p1) B) (C modulation p1))`
+			af-full:`(default:compartment (A biological-activity type:simple-chemical q:1-2) (B biological-activity type:simple-chemical q:3-2) (C biological-activity q:2-1) ((A C) unknown-influence B))`
+			<.>
+		m-sti-m
+			folder:"m-sti-m"
+			rule:32
+			pd-full:`(default:compartment (A simple-chemical q:1-2) (B simple-chemical q:3-2) (C macromolecule q:2-1) (A (process p1) B) (C stimulation p1))`
+			af-full:`(default:compartment (A biological-activity type:simple-chemical q:1-2) (B biological-activity type:simple-chemical q:3-2) (C biological-activity q:2-1) ((A C) positive-influence B))`
+			<.>
+		m-cat-m
+			folder:"m-cat-m"
+			rule:33
+			pd-full:`(default:compartment (A simple-chemical q:1-2) (B simple-chemical q:3-2) (C macromolecule q:2-1) (A (process p1) B) (C catalysis p1))`
+			af-full:`(default:compartment (A biological-activity type:simple-chemical q:1-2) (B biological-activity type:simple-chemical q:3-2) (C biological-activity q:2-1) ((A C) positive-influence B))`
+			<.>
+		m-inh-m
+			folder:"m-inh-m"
+			rule:34
+			pd-full:`(default:compartment (A simple-chemical q:1-2) (B simple-chemical q:3-2) (C macromolecule q:2-1) (A (process p1) B) (C inhibition p1))`
+			af-full:`(default:compartment (A biological-activity type:simple-chemical q:1-2) (B biological-activity type:simple-chemical q:3-2) (C biological-activity q:2-1) ((A C) negative-influence B))`
+			<.>
+		m-nsti-m
+			folder:"m-nsti-m"
+			rule:35
+			pd-full:`(default:compartment (A simple-chemical q:1-2) (B simple-chemical q:3-2) (C macromolecule q:2-1) (A (process p1) B) (C inhibition p1))`
+			af-full:`(default:compartment (A biological-activity type:simple-chemical q:1-2) (B biological-activity type:simple-chemical q:3-2) (C biological-activity q:2-1) ((A C) necessary-stimulation B))`
+			<.>
+	
+			
+		
+			
+			
+				
+			
+

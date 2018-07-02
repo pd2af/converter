@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Specification</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        [{meta.html.navigation}:<a href="{file}.html">{name}</a>]
+      </nav>
+
+			<h1>Specification</h1>
+
+			<p>{{specification.root.intro.Intro.text}}</p>
+
+      <!-- SIGNAL PATHWAY -->
+      <h2>Signal pathway basic</h2>
+
+			[{specification.root.translation_rules:
+
+			%(create-sbgn-ml-files "../specification" <this>)%
+
+			<h3>{rule}. %(get-name <this>)%</h3>
+      <div>%(let* ((item <this>)
+                  (translated-af-context (translate-pd (get-pd-str "../specification" item)))
+                  (canonical-af-context (get-af-context (get-af-str "../specification" item)))
+                  (translatable? (contexts-equal? translated-af-context canonical-af-context)))
+              (if translatable?
+                "<span class=\"translation-passed\">translation passed</span>"
+                "<span class=\"translation-not-passed\">translation failed</span>"))%
+      </div>
+
+			<table class="rules-table">
+				<tr>
+					<td>
+						<div><img src="specification/{folder}/pd.png" width="{folder:(λ (x) (calculate-img-width (str "../specification/" x "/pd.png")))}px" /></div>
+					</td>
+					<td>
+						<img src="specification/{folder}/af.png" width="{folder:(λ (x) (calculate-img-width (str "../specification/" x "/af.png")))}px" />
+					</td>
+				</tr>
+        <tr style="font-size:90%">
+          <td>
+            <a href="specification/{folder}/pd.sbgn">SBGN-ML</a>&ensp;<a href="http://web.newteditor.org/?URL=https://denis-shirshov.ru/for/sbgn/specification/{folder}}/pd.sbgn" target="_blank">Newt</a>
+          </td>
+          <td>
+            <a href="specification/{folder}/af.sbgn">SBGN-ML</a>&ensp;<a href="http://web.newteditor.org/?URL=https://denis-shirshov.ru/for/sbgn/specification/{folder}/af.sbgn" target="_blank">Newt</a>
+          </td>
+        </tr>
+			</table>
+			]
+
+    </div>
+  </body>
+</html>

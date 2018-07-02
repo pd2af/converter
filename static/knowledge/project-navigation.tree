@@ -1,0 +1,7 @@
+sbgn
+	diagrams-source
+		Metabolism-regulation url:metabolismregulation.org
+		Reactome url:reactome.org/PathwayBrowser
+	project-urls
+		Translation_rules url:https://pd2af.github.io/rules
+		Examples url:https://pd2af.github.io/examples

@@ -1,0 +1,17 @@
+parameters
+	Project start:14.06.2018
+plan_A
+	a user:DS title:"A job" start:14.06.2018 length:7d status:done
+	b user:JP after:a title:"B job" length:2w
+	c user:DS after:a title:"C job" length:10d status:done
+	d user:AM after:b,c title:"D job" length:3d status:done
+	d1 user:AM after:d title:"D1 job" length:1w 
+	e user:DS,JP title:"E job" start:13.06.2018 end:24.06.2018
+	f user:DS after:e title:"F job" end:05.07.2018
+	g user:IB after:c title:"G job" length:2w
+	h user:AS after:g title:"H job" length:1w
+	i user:HK start:15.06.2018 title:"I job" length:1w status:done
+	j user:HK after:i title:"J job" length:10d
+	k user:HK after:j title:"K job" length:5d
+	l user:DS after:j title:"L job" length:1w
+	m user:JP after:j title:"M job" length:3w

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Translation rules</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        [{meta.html.navigation}:<a href="{file}.html">{name}</a>]
+      </nav>
+
+			<h1>Examples</h1>
+
+			<p>{{examples.root.intro.text}}</p>
+
+			[{examples.root.translation_examples}:
+
+			%(create-sbgn-ml-files "../examples" <this>)%
+
+			<h3>%(titlefy (get-name <this>) #:only-first #t)%</h3>
+
+			<table class="examples-table">
+				<tr>
+					<td>
+            <h5>PD</h5>
+						<div><img src="examples/{folder}/pd.png" width="{folder:(λ (x) (calculate-img-width (str "../examples/" x "/pd.png")))}px" /></div>
+					</td>
+        </tr>
+        <tr style="font-size:90%">
+          <td>
+            <a href="examples/{folder}/pd.sbgn">SBGN-ML</a>&ensp;<a href="http://web.newteditor.org/?URL=https://pd2af.github.io/examples/{folder}}/pd.sbgn" target="_blank">Newt</a>
+          </td>
+        </tr>
+        <tr>
+					<td>
+            <h5>AF</h5>
+						<img src="examples/{folder}/af.png" width="{folder:(λ (x) (calculate-img-width (str "../examples/" x "/af.png")))}px" />
+					</td>
+				</tr>
+        <tr>
+          <td>
+            <a href="examples/{folder}/af.sbgn">SBGN-ML</a>&ensp;<a href="http://web.newteditor.org/?URL=https://pd2af.github.io/examples/{folder}/af.sbgn" target="_blank">Newt</a>
+          </td>
+        </tr>
+				<tr style="line-height: 3em;">
+					<td style="text-align:left;">{descr}</td>
+				</tr>
+				<tr style="line-height: 3em;">
+					<td style="text-align:left;">{important:(extend-txt "IMPORTANT: ")}</td>
+				</tr>
+			</table>
+
+			]
+
+    </div>
+  </body>
+</html>

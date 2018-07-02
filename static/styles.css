@@ -1,0 +1,145 @@
+body {
+  font-family:'LatoWeb',Open Sans,Arial,Helvetica,sans serif;
+  font-size:11pt;
+  line-height:20pt;
+}
+
+h1 {
+  font-size:32px;
+  line-height:42px;
+  font-family:Rubik,Arial,Helvetica,sans serif;
+  text-align: left;
+  margin: 1.5em 0;
+}
+
+h2 {
+  font-size:24px;
+  line-height:32px;
+  font-family:Rubik,Arial,Helvetica,sans serif;
+  margin: 1em 0;
+}
+
+.container {
+  margin:auto;
+  width: 80%;
+}
+
+header {
+  font-size:12pt;
+  font-family:Rubik,Arial,Helvetica,sans serif;
+  color:#ccc;
+  margin-bottom:2em;
+}
+
+.link {
+  margin:1em 0;
+}
+
+a {
+  color:#a00;
+}
+
+nav {
+  text-align: left;
+  font-size:12pt;
+}
+
+nav a {
+  margin-right: 3em;
+}
+
+.list {
+  margin: 3em 0;
+}
+
+.list-item {
+  margin: 1.5em 0;
+}
+
+
+a.barlink {
+  text-decoration: none;
+}
+
+.bar {
+  color: white;
+  padding:10px 15px 10px 5px;
+  height:50px;
+  font-size:20px;
+  font-weight:bold;
+  margin:1em 0;
+  text-align:right;
+}
+
+.bar div {
+  line-height:50px;
+}
+
+table.rules-table {
+    table-layout:fixed;
+    width: 600px;
+}
+
+.rules-table td {
+  vertical-align: top;
+  text-align:center;
+  width: 300px;
+ }
+
+table.examples-table {
+    table-layout:fixed;
+    width: 800px;
+}
+
+.examples-table td {
+  vertical-align: top;
+  text-align:center;
+  width: 800px;
+ }
+
+ .examples-table td h5 {
+   text-align: left;
+ }
+
+.translation-passed {
+  color: #0a0;
+}
+
+.translation-not-passed {
+  color: #a00;
+}
+
+/* Gantt svg */
+.svg {
+  margin-top: -1em;
+}
+
+.labels {
+  font-size: 28;
+  font-weight: normal;
+  font-family: Calibri;
+  fill: grey;
+  text-anchor: middle;
+}
+
+.holiday-bg {
+  fill: #f0f0f0;
+}
+
+.today-bg {
+  fill: #A6FF48;
+  opacity: 0.3;
+}
+
+.job_title {
+  font-size: 32;
+  font-weight: normal;
+  font-family: Calibri;
+  fill: white;
+  text-anchor: left;
+}
+
+.convergence_line {
+  stroke-width: 2.5;
+  stroke: black;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PD2AF Translator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- bulma -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+  <script src="angular/components/ng-file-upload/ng-file-upload-all.js"></script>
+  <script src="angular/controllers.js"></script>
+</head>
+<body>
+  <form ng-app="upload_xml" ng-controller="AppController" ng-init="current_file='Select file'" name="form">
+    <section class="section">
+      <h1 class="subtitle is-1 has-text-grey-light">PD > AF</h1>
+      <p class="subtitle is-5 has-text-grey">Translate SBGN diagrams from Process Description to Activity Flow. Please, upload file in XML format.</p>
+      <div class="box">
+        <!-- <p class="title is-size-6">Upload SBGN PD file <span style="font-size:0.7em; color: #aaa">(in XML format)</span></p> -->
+        <div class="buttons">
+            <a id="file_selector_button" ng-class="['button', 'is-large', translate_button? 'is-light' : 'is-info']" ngf-select="refresh_filename($file)" ng-model="file" name="file">{{file_selector_button_text}}</a>
+            <a class="button is-large is-info ng-hide" ng-show="translate_button" ng-click="submit()">Translate</a>
+        </div>
+      </div>
+      <!-- <div class="box" nv-file-over="" uploader="uploader">
+        Or drop file here
+      </div> -->
+      <!-- <div class="box">
+        <button class="button is-normal is-success is-rounded" type="submit" ng-click="submit()">Translate!</button>
+      </div> -->
+      <div ng-show="download_button" class="box ng-hide">
+        <table class="table subtitle is-5">
+          <tbody>
+            <tr>
+              <td><div class="has-text-dark has-text-weight-normal">Open result as AF SBGN file:</div></td>
+              <td><a href="/generated/{{af_filename}}">{{af_filename}}</a></td>
+              <!-- <td><a class="delete is-normal" ng-click="reset()"></a></td> -->
+            </tr>
+            <tr>
+              <td><span class="has-text-dark has-text-weight-normal is-large">Open result in Newt Editor:</span></td>
+              <td><a href="http://web.newteditor.org/?URL={{af_fileurl}}" target="_blank"><img width="80" src="http://web.newteditor.org/app/img/newt-logo.png" /></a></td>
+              <!-- <td><a class="delete is-normal" ng-click="reset()"></a></td> -->
+            </tr>
+            <tr><td><a class="button is-danger is-large" ng-click="reset()">Reset</a></td></tr>
+      </div>
+      <!-- <div class="notification is-success ng-hide" ng-show="download_button" style="width:200">
+        <button class="delete"></button>
+        AF SBGN file: <a href="/generated/{{af_filename}}">{{af_filename}}</a>
+      </div> -->
+    </section>
+  </form>
+</body>
+</html>

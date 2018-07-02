@@ -1,0 +1,11 @@
+project title:"PD2AF. Conversion tool."
+html
+	navigation
+		Index name:"Start" file:index
+		; Rules name:"Rules" file:rules
+		Examples name:"Examples" file:examples
+		Specification name:"Specification" file:specification
+		Todo name:"Project TODOs" file:todo
+library
+	<gen-id> name:"sbgn-lisp" url:https://github.com/prozion/sbgn-lisp description:"Allows to write SBGN in the form of lisp-like expressions. This brings an opportunity to codify SBGN otherwise graphical diagrams in the textual way. It is far more convenient to work with, comparing to SBGN-ML which is usually used to save diagram in computer-readable format (XML), but fails to be readable by human."
+	<gen-id> name:"pd2af translator" url:https://github.com/prozion/pd2af description:"Translates SBGN PD diagrams into SBGN AF. Sometimes PD diagrams grow really big and we need to make them more compact. Reduction PD to AF is one of the possible ways to do it."

@@ -1,0 +1,100 @@
+(pd
+	
+	(defs
+		(sample IFNy-c macromolecule-multimer name:"IFNγ" uoi:"N:2")
+		(sample IFNyR1-c macromolecule-multimer name:"IFNγR1" uoi:"N:2" Y457:"")
+		(sample IFNyR1-P-c macromolecule-multimer name:"IFNγR1" uoi:"N:2" Y457:"P")
+		(sample IFNyR2-c macromolecule-multimer name:"IFNγR2" uoi:"N:2")
+		(sample JAK1-c macromolecule name:"JAK1")
+		(sample JAK2-c macromolecule name:"JAK2")
+	)
+	
+	(extracellular-space:compartment
+		(IFNy macromolecule-multimer name:"IFNγ" uoi:"N:2" q:8-1)
+		(arginine-1 simple-chemical name:"arginine" q:10-1)
+		(NO-1 simple-chemical name:"NO" q:12-1)
+	)
+	
+	(plasma-membrane:compartment
+		(c1 complex [IFNyR1-c IFNyR2-c JAK1-c JAK2-c] q:9-2)
+		(c2 complex [IFNy-c IFNyR1-c IFNyR2-c JAK1-c JAK2-c] q:5-2)
+		(c3 complex [IFNy-c IFNyR1-P-c IFNyR2-c JAK1-c JAK2-c] q:2-2)
+
+		((IFNy c1) process c2)
+		(c2 (process p1) c3)
+		(c2 stimulation p1) 
+	)
+
+	(cytosol:compartment
+		(stat1a macromolecule name:"STAT1α" S727:"" Y701:"" q:3-7)
+		(stat1a-PP macromolecule name:"STAT1α" S727:"P" Y701:"P" q:1-7)
+		(stat1a-PP-N2-cytosol macromolecule-multimer name:"STAT1α" uoi:"N:2" S727:"P" Y701:"P" q:1-9)
+		(irf1-3 nucleic-acid-feature name:"IRF1" uoi:"ct:mRNA" q:3-9)
+		(s1 source-and-sink q:2-8)
+		(s2 source-and-sink q:4-9)
+		(s3 source-and-sink q:6-8)
+		(s4 source-and-sink q:8-9)
+		(irf1-4 macromolecule name:"IRF1" q:5-8)
+		(inos-3 nucleic-acid-feature name:"iNOS" uoi:"ct:mRNA" q:7-9)
+		(inos-4 macromolecule name:"iNOS" q:8-8)
+		(cam macromolecule name:"CaM" q:7-7)
+		(c4 complex 
+				[	(cam-c-1 macromolecule-multimer name:"CaM" uoi:"N:2")
+					(inos-c-1 macromolecule-multimer name:"iNOS" uoi:"N:2")]
+				q:9-7)
+				
+		(O2 simple-chemical q:11-10)
+		(NO-2 simple-chemical name:"NO" q:12-8)
+		(citrulline simple-chemical q:12-9)
+		(aspartate simple-chemical q:12-10)
+		(ass macromolecule name:"ASS" q:12-11)
+		(arginino-succinate simple-chemical q:10-12)
+		(asl macromolecule-multimer name:"ASL" uoi:"N:4" q:9-11)
+		(fumarate simple-chemical q:9-10)
+		(arginine-2 simple-chemical name:"arginine" q:10-9)
+		
+		(stat1a (process p2) stat1a-PP)
+		(c3 stimulation p2)
+		(stat1a-PP (process p11 cardinality:"2") stat1a-PP-N2-cytosol)
+		
+		(irf1-2 process irf1-3)
+		(irf1-3 process s2)
+		(s1 (process p4) irf1-4)
+		(irf1-3 necessary-stimulation p4)
+		
+		(inos-2 process inos-3)
+		(inos-3 process s4)
+		(s3 (process p6) inos-4)
+		(inos-3 necessary-stimulation p6)
+		((inos-4 cam) (process p10 cardinality:"2,2") c4)
+		
+		(arginine-1 process arginine-2)
+		(arginino-succinate (process p7) (fumarate arginine-2))
+		((arginine-2 O2) (process p8) (NO-2 citrulline))
+		((citrulline aspartate) (process p9) arginino-succinate)
+		(asl catalysis p7)
+		(ass catalysis p9)
+		(c4 catalysis p8)
+		
+		(NO-2 process NO-1)
+	)
+
+	(nucleus:compartment
+		(stat1a-PP-N2-nucleus macromolecule-multimer name:"STAT1α" uoi:"N:2" S727:"P" Y701:"P" q:1-13)
+		(irf1-1 nucleic-acid-feature name:"IRF1" uoi:"ct:gene" q:2-13)
+		(irf1-2 nucleic-acid-feature name:"IRF1" uoi:"ct:mRNA" q:3-14)
+		(s5 source-and-sink q:1-14)
+		(s6 source-and-sink q:5-14)
+		(irf1-5 macromolecule name:"IRF1" q:5-13)
+		(inos-1 nucleic-acid-feature name:"iNOS" uoi:"ct:gene" q:6-13)
+		(inos-2 nucleic-acid-feature name:"iNOS" uoi:"ct:mRNA" q:7-14)
+		
+		(stat1a-PP-N2-cytosol process stat1a-PP-N2-nucleus)
+		(s5 (process p3) irf1-2)
+		((stat1a-PP-N2-nucleus irf1-1) necessary-stimulation p3)
+		
+		(irf1-4 process irf1-5)
+		(s6 (process p5) inos-2)
+		((irf1-5 inos-1) necessary-stimulation p5)
+	)
+)

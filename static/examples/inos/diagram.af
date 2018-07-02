@@ -1,0 +1,69 @@
+(af
+	
+	(extracellular-space:compartment
+		(IFNy biological-activity name:"IFNγ" uoi:"N:2" q:8-1)
+		(arginine-1 biological-activity type:simple-chemical name:"arginine" q:10-1)
+		(NO-1 biological-activity name:"NO" type:simple-chemical q:12-1)
+	)
+	
+	(plasma-membrane:compartment
+		(c1 biological-activity type:complex name:"IFNyR1-IFNyR2-JAK1-JAK2" q:9-2)
+		; (c2 biological-activity type:complex name:"IFNy-IFNyR1-IFNyR2-JAK1-JAK2" q:5-2)
+		(c3 biological-activity type:complex name:"IFNy-IFNyR1-IFNyR2-JAK1-JAK2" q:2-2)
+
+		((IFNy c1) positive-influence c3)
+		; (c2 positive-influence c3)
+	)
+
+	(cytosol:compartment
+		(stat1a biological-activity name:"STAT1α" q:1-3)
+		(stat1a-N2-cytosol biological-activity name:"STAT1α-dimer" q:1-5)
+		(irf1-3 biological-activity type:nucleic-acid-feature name:"IRF1" uoi:"ct:mRNA" q:3-5)
+		(irf1-4 biological-activity name:"IRF1" q:5-4)
+		(inos-3 biological-activity type:nucleic-acid-feature name:"iNOS" uoi:"ct:mRNA" q:7-5)
+		(inos-4 biological-activity name:"iNOS" q:8-4)
+		(cam biological-activity name:"CaM" q:7-3)
+		(c4 biological-activity type:complex name:"CaM-dimer-iNOS-dimer" q:9-3)
+				
+		(O2 biological-activity type:simple-chemical q:11-6)
+		(NO-2 biological-activity type:simple-chemical name:"NO" q:12-4)
+		(citrulline biological-activity type:simple-chemical q:12-5)
+		(aspartate biological-activity type:simple-chemical q:12-6)
+		(ass biological-activity name:"ASS" q:12-7)
+		(arginino-succinate biological-activity type:simple-chemical q:10-8)
+		(asl biological-activity name:"ASL" uoi:"N:4" q:9-7)
+		(fumarate biological-activity type:simple-chemical q:9-6)
+		(arginine-2 biological-activity type:simple-chemical name:"arginine" q:10-5)
+		(c3 positive-influence stat1a)
+		(stat1a positive-influence stat1a-N2-cytosol)
+		
+		(irf1-2 positive-influence irf1-3)
+		(irf1-3 necessary-stimulation irf1-4)
+		
+		(inos-2 positive-influence inos-3)
+		(inos-3 necessary-stimulation inos-4)
+		((inos-4 cam) positive-influence c4)
+		
+		(arginine-1 positive-influence arginine-2)
+		((asl arginino-succinate) positive-influence (fumarate arginine-2))
+		((c4 arginine-2 O2) positive-influence (NO-2 citrulline))
+		((citrulline aspartate ass) positive-influence arginino-succinate)
+		
+		(NO-2 positive-influence NO-1)
+	)
+
+	(nucleus:compartment
+		(stat1a-N2-nucleus biological-activity name:"STAT1α-dimer" uoi:"N:2" q:1-9)
+		(irf1-1 biological-activity type:nucleic-acid-feature name:"IRF1" uoi:"ct:gene" q:2-9)
+		(irf1-2 biological-activity type:nucleic-acid-feature name:"IRF1" uoi:"ct:mRNA" q:3-10)
+		(irf1-5 biological-activity name:"IRF1" q:5-9)
+		(inos-1 biological-activity type:nucleic-acid-feature name:"iNOS" uoi:"ct:gene" q:6-9)
+		(inos-2 biological-activity type:nucleic-acid-feature name:"iNOS" uoi:"ct:mRNA" q:7-10)
+		
+		(stat1a-N2-cytosol positive-influence stat1a-N2-nucleus)
+		((stat1a-N2-nucleus irf1-1) necessary-stimulation irf1-2)
+		
+		(irf1-4 positive-influence irf1-5)
+		((irf1-5 inos-1) necessary-stimulation inos-2)
+	)
+)

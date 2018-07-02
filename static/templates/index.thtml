@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Start page</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        [{meta.html.navigation}:<a href="{file}.html">{name}</a>]
+      </nav>
+
+      <h1>Prototype pages for PD2AF project</h1>
+
+      <p>Here you can see prototype pages for the <a href="http://pd2af.github.io">pd2af.github.io</a> project.</p>
+
+      <p>Pages are being generated automatically from the knowledge files .tree, using libraries:
+        <ul>
+          [{meta.library}:<li><a href="{url}">{name}</a> - {description:textify}</li>]
+        </ul>
+      </p>
+
+    </div>
+  </body>
+</html>
