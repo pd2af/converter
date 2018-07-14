@@ -1,9 +1,8 @@
 #lang racket
 
 (require compatibility/defmacro)
-(require "../../load/all.rkt")
+(require "../odysseus/lib/load/all.rkt")
 (require "common.rkt")
-; (require "../../../../odysseus/lib/load/all.rkt")
 
 (provide (all-defined-out))
 
@@ -51,6 +50,7 @@
 (define ReferenceNode (list "tag"))
 
 (define ElementaryEPN (list "unspecified entity" "simple chemical" "simple chemical multimer" "source and sink")) (define ElementaryEPN? (Class? ElementaryEPN))
+(define Metabolite (list "simple chemical" "simple chemical multimer")) (define Metabolite? (Class? Metabolite))
 (define NonElementaryEPN (list "macromolecule" "macromolecule multimer" "nucleic acid feature" "nucleic acid feature multimer" "perturbing agent" "complex" "complex multimer")) (define NonElementaryEPN? (Class? NonElementaryEPN))
 (define Complex (list "complex")) (define Complex? (Class? Complex))
 (define EPN (append ElementaryEPN NonElementaryEPN)) (define EPN? (Class? EPN)) ; Entity Pool Node

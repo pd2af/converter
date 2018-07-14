@@ -1,19 +1,13 @@
 #lang racket
 
-(require "../lib/load/all.rkt")
-; (require "../../../../odysseus/lib/load/all.rkt")
 (require racket/syntax)
-; (require "../lib/projects/pd2af/common.rkt")
-; (require "../lib/projects/pd2af/types.rkt")
-; (require "../lib/projects/pd2af/context.rkt")
-; (require "../lib/projects/pd2af/sexp.rkt")
-; (require "../lib/projects/pd2af/geometry.rkt")
-(require "../../../../odysseus/lib/projects/pd2af/common.rkt")
-(require "../../../../odysseus/lib/projects/pd2af/types.rkt")
-(require "../../../../odysseus/lib/projects/pd2af/context.rkt")
-(require "../../../../odysseus/lib/projects/pd2af/sexp.rkt")
-(require "../../../../odysseus/lib/projects/pd2af/geometry.rkt")
 (require sxml)
+(require "../odysseus/lib/load/all.rkt")
+(require "../sbgn/common.rkt")
+(require "../sbgn/types.rkt")
+(require "../sbgn/context.rkt")
+(require "../sbgn/sexp.rkt")
+(require "../sbgn/geometry.rkt")
 
 (provide pd2af)
 
@@ -23,7 +17,7 @@
 ; * Combined activities template +
 ; * Simple enzyme activities template
 
-(define (translate sexp-0 af-context-0 pd-context)
+(define (pd2af-1 sexp-0 af-context-0 pd-context)
   (let loop ((sexp sexp-0) (af-context af-context-0))
     (match sexp
       ; base signal pathway regulation
@@ -44,6 +38,10 @@
 
               (regulator-substrate-influence (hash 'id (set-id) 'class (inverse-class (to-af-class ($ class control))) 'sources (list regulator-id) 'targets (list substrate-id)))
               (regulator-product-influence (hash 'id (set-id) 'class (to-af-class ($ class control)) 'sources (list regulator-id) 'targets (list product-id)))
+              (and-gate (hash 'id (set-id) 'class "and" 'sources (list substrate-id regulator-id) 'targets (list product-id)))
+              (logic-arc-substrate (hash 'id (set-id) 'class "logic arc" 'sources (list substrate-id) 'targets (list ($ id and-gate))))
+              (logic-arc-regulator (hash 'id (set-id) 'class "logic arc" 'sources (list regulator-id) 'targets (list ($ id and-gate))))
+              (and-gate-influence (hash 'id (set-id) 'class (to-af-class ($ class control)) 'sources (list ($ id and-gate)) 'targets (list product-id)))
 
               ; TODO: recode following up-to-date terms and rules of translation
               (substrate-active? (active? substrate-id pd-context))
@@ -53,6 +51,19 @@
               ; END
               )
           (cond
+            ; metabolic pathway
+            ((and (Metabolite? substrate) (Metabolite? product))
+              (case ($ class control)
+                ; ((stimulation catalysis)
+                (else
+                  (loop
+                    (@@--- substrate-id product-id control-id process-id sexp)
+                    (&&>> substrate-af logic-arc-substrate
+                          regulator-af logic-arc-regulator
+                          and-gate
+                          and-gate-influence product-af
+                          af-context)))
+              ))
             ; a-a
             ((and substrate-active? product-active?)
                 (loop
@@ -73,7 +84,6 @@
                 (loop
                   (@@--- substrate-id product-id control-id process-id sexp)
                   (&&>> regulator-af regulator-product-influence product-af af-context))))))
-      ; metabolic pathway
       ; if no more matches - exit
       (else
         (values sexp af-context)))))
@@ -85,6 +95,6 @@
         ((af-context-0) (append
                           (filter-not ProcessGlyph? pd-context)
                           (filter Container? pd-context)))
-        ((sexp af-context) (translate pd-sexp-0 af-context-0 pd-context))
+        ((sexp af-context) (pd2af-1 pd-sexp-0 af-context-0 pd-context))
         )
     af-context))

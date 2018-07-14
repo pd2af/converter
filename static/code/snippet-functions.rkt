@@ -1,18 +1,18 @@
 #lang racket
 
-(require "../../../../../odysseus/lib/load/all.rkt")
-(require "../../../../../odysseus/graphics/svg.rkt")
-(require "../../../../../odysseus/graphics/color.rkt")
-(require "../../../../../odysseus/knowledge-base/tab-tree.rkt")
-(require "../../../../../odysseus/knowledge-base/html.rkt")
-(require "../../../../sbgn-lisp/sbgn-form.rkt")
-(require "../../../../sbgn-pd2af/server/sbgn/translate.rkt")
-(require "../../../../sbgn-pd2af/tests/test.rkt")
-
+(require "../../libs/odysseus/lib/load/all.rkt")
+(require "../../libs/odysseus/graphics/svg.rkt")
+(require "../../libs/odysseus/graphics/color.rkt")
+(require "../../libs/odysseus/knowledge-base/tab-tree.rkt")
+(require "../../libs/odysseus/knowledge-base/html.rkt")
+(require "../../libs/sbgn-lisp/sbgn-form.rkt")
+(require "../../libs/pd2af/translate.rkt")
+(require "../../libs/pd2af/test.rkt")
+;
 (provide (all-defined-out))
-(provide (all-from-out "../../../../sbgn-pd2af/server/sbgn/translate.rkt" "../../../../sbgn-pd2af/tests/test.rkt"))
+(provide (all-from-out "../../libs/pd2af/translate.rkt" "../../libs/pd2af/test.rkt"))
 
-(define ns (module->namespace (string->path "c:/denis/denis_core/projects/sbgn-lisp/sbgn-form.rkt")))
+(define ns (module->namespace (string->path "c:/denis/denis_core/projects/pd2af/libs/sbgn-lisp/sbgn-form.rkt")))
 
 ; (define newt-prefix-url "http://web.newteditor.org/?URL=https://denis-shirshov.ru/for/alexander-mazein/rules")
 (define newt-prefix-url "http://web.newteditor.org/?URL=http://pd2af.rusvegia.com/rules-auto")

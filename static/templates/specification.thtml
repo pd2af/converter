@@ -18,7 +18,7 @@
       <!-- SIGNAL PATHWAY -->
       <h2>Signal pathway basic</h2>
 
-			[{specification.root.translation_rules:
+			[{specification.root.translation_rules}:
 
 			%(create-sbgn-ml-files "../specification" <this>)%
 

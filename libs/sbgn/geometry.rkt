@@ -1,10 +1,9 @@
 #lang racket
 
 (require compatibility/defmacro)
-(require "../../load/all.rkt")
+(require "../odysseus/lib/load/all.rkt")
 (require "types.rkt")
 (require "common.rkt")
-; (require "../../../../odysseus/lib/load/all.rkt")
 
 (provide (all-defined-out))
 

@@ -1,12 +1,12 @@
 #lang racket
 
-(require "../../odysseus/lib/load/all.rkt")
+(require "../odysseus/lib/load/all.rkt")
 (require racket/syntax)
 (require sxml)
-(require "../../odysseus/lib/projects/pd2af/common.rkt")
-(require "../../odysseus/lib/projects/pd2af/types.rkt")
-(require "../../odysseus/lib/projects/pd2af/context.rkt")
-(require "../../odysseus/lib/projects/pd2af/geometry.rkt")
+(require "../sbgn/common.rkt")
+(require "../sbgn/types.rkt")
+(require "../sbgn/context.rkt")
+(require "../sbgn/geometry.rkt")
 
 (provide (all-defined-out))
 
@@ -421,8 +421,9 @@
 (define-catch (make-single-arcs-from-multiarc el)
   (let* (
         (in-sources ($ sources el))
-        (in-target ($ in-id el))
-        (out-source ($ out-id el))
+        ; (in-target ($ in-id el))
+        ; (out-source ($ out-id el))
+        (multiarc-id ($ id el))
         (out-targets ($ targets el))
         (sources ($ out-id el))
         (in-class (cond
@@ -440,7 +441,7 @@
             (for/list
               ((source in-sources))
               (let* (
-                    (in-arc-hash (hash 'class in-class 'id (set-id #:prefix (str (string-replace in-class " " "-") "-")) 'source source 'target in-target))
+                    (in-arc-hash (hash 'class in-class 'id (set-id #:prefix (str (string-replace in-class " " "-") "-")) 'sources (list source) 'targets (list multiarc-id)))
                     (in-arc-hash (if (and sources-cardinality (not (empty? sources-cardinality)))
                                       (hash-union
                                         (hash 'cardinality (nth sources-cardinality (indexof in-sources source)))
@@ -451,7 +452,7 @@
             (for/list
               ((target out-targets))
               (let* (
-                    (out-arc-hash (hash 'class out-class 'id (set-id #:prefix (str (string-replace out-class " " "-")"-")) 'source out-source 'target target))
+                    (out-arc-hash (hash 'class out-class 'id (set-id #:prefix (str (string-replace out-class " " "-")"-")) 'sources (list multiarc-id) 'targets (list target)))
                     (out-arc-hash (if (and targets-cardinality (not (empty? targets-cardinality)))
                                       (hash-union
                                         (hash 'cardinality (nth targets-cardinality (indexof out-targets target)))
@@ -490,7 +491,7 @@
       ((or* ModulationArc? ActivityArc? el)
         (let ((id (set-id #:prefix "modulation-")))
           (pushr res (hash-union
-                        (hash 'id id 'source (car ($ sources el)) 'target (car ($ targets el)))
+                        (hash 'id id 'sources ($ sources el) 'targets ($ targets el))
                         el))))
       (else (pushr res el)))))
 
@@ -675,8 +676,8 @@
               (cond
                 ((or* FluxArc? LogicArc? el)
                   (let* (
-                        (source (&& ($ source el) context '(id in-id out-id)))
-                        (target (&& ($ target el) context '(id in-id out-id)))
+                        (source (&& (car ($ sources el)) context '(id in-id out-id)))
+                        (target (&& (car ($ targets el)) context '(id in-id out-id)))
                         (coors (calculate-arc-coors ($ x source) ($ y source) ($ w source) ($ h source) ($ x target) ($ y target) ($ w target) ($ h target) (list ($ id source) ($ id target))))
                         (x1 (if ($ out-id source) ($ out-x source) ($ x1 coors)))
                         (y1 (if ($ out-id source) ($ out-y source) ($ y1 coors)))
@@ -686,8 +687,8 @@
                   (pushr res (hash-union el (hash 'x1 x1 'y1 y1 'x2 x2 'y2 y2)))))
                 ((or* ModulationArc? ActivityArc? el)
                   (let* (
-                        (source (&& ($ source el) context '(id in-id out-id)))
-                        (target (&& ($ target el) context '(id)))
+                        (source (&& (car ($ sources el)) context '(id in-id out-id)))
+                        (target (&& (car ($ targets el)) context '(id)))
                         (coors (calculate-arc-coors ($ x source) ($ y source) ($ w source) ($ h source) ($ x target) ($ y target) ($ w target) ($ h target) (list ($ id source) ($ id target))))
                         (x1 ($ x1 coors))
                         (y1 ($ y1 coors))
@@ -841,8 +842,8 @@
   (let* (
         (class ($ class element))
         (id (->string ($ id element)))
-        (source (->string ($ source element)))
-        (target (->string ($ target element)))
+        (source (->string (car ($ sources element))))
+        (target (->string (car ($ targets element))))
         (cardinality ($ cardinality element))
         (cardinality-glyph (if cardinality
                                     `(glyph (@ (id ,(->string (set-id #:prefix (str id "-cardinality-")))) (class "cardinality"))

@@ -4,7 +4,7 @@
 (require "geometry.rkt")
 (require "sexp.rkt")
 (require "types.rkt")
-(require "../../load/all.rkt")
+(require "../odysseus/lib/load/all.rkt")
 
 (provide (all-defined-out))
 
@@ -374,15 +374,6 @@
 
 (define-catch (get-signature el context)
 	(let* (
-				; (el-uoi (if (and ($ type el) (indexof? NonDefaultEPN ($ type el)))
-				; 							(list ($ type el))
-				; 							#f))
-				; (el-uoi (if (and
-				; 								el-uoi
-				; 								; (another-same-name+class-element? el context)
-				; 								(not (nil? ($ uoi el))))
-				; 							(pushr el-uoi ($ uoi el))
-				; 							el-uoi))
         (compartment (->string ($ name (&& ($ compartment el) context))))
         (name (->string (or ($ name el) ($ id el)))))
 		 (list compartment name)))

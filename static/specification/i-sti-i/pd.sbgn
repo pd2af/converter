@@ -26,11 +26,11 @@
       <port id="p1-in" x="283.0" y="250.0" />
       <port id="p1-out" x="317.0" y="250.0" />
     </glyph>
-    <arc class="consumption" id="consumption-8" source="A1" target="p1-in">
+    <arc class="consumption" id="consumption-8" source="A1" target="p1">
       <start x="240.0" y="250.0" />
       <end x="283.0" y="250.0" />
     </arc>
-    <arc class="production" id="production-9" source="p1-out" target="A2">
+    <arc class="production" id="production-9" source="p1" target="A2">
       <start x="317.0" y="250.0" />
       <end x="360.0" y="250.0" />
     </arc>

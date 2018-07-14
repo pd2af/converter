@@ -1,0 +1,131 @@
+biology_language
+	MIM deabbr:"Molecular Interaction Map"
+	PharmML
+	MDL deabbr:"Model Description Language" year:1996 implemented-in:C app:Quake
+	BioPAX year:2010 deabbr:"Biological Pathway Exchange" based-on:XML article:Demir_2010
+		BioPAX_L1
+		BioPAX_L2
+		BioPAX_L3 ontology-url:www.biopax.org/release/biopax-level3.owl
+			SBPAX deabbr:"Systems Biology Pathway Exchange"
+	SBML year:2003 implemented-in:XML article:Hucka_2003
+		SBML_L1
+		SBML_L2
+		SBML_L3
+	CellML year:2004 article:Lloyd_2004
+	VCML
+	PSI-MI
+	BCML name:"Biological Connection Markup Language" article:Beltrame_2011
+	BEL name:"Biological Expression Language"
+	KGML name:"KEGG Markup Language"
+	SBGN year:2006 type:graphical_representation represented:SBML,GML,GraphML,SBGN-ML xsd:"http://goo.gl/ptMCzG"
+		; SBGN-sublanguage
+		SBGN-PD inspired-by:CellDesigner,EPE
+		SBGN-ER inspired-by:MIM
+		SBGN-AF
+	Reduced_Notation app:CellDesigner
+	SBOL deabbr:"Synthetic Biology Open Language"
+	Protein_Language
+	GPML
+	DCL deabbr:"Diagrammatic Cell Language"
+sbgn_patterns
+	metabolic_process
+		Reaction name:"{control} {direction} metabolic reaction with {substrate} substrates and {product} products" direction:reversible,irreversible substrate:1,2,many product:1,2,many control:modulation,stimulation,necessary_stimulation,catalysis,inhibition,
+	signalling_process
+		Simple_process name:"Protein {modification}" modification:phosphorylation,ubiquitination,methylation,acetylation,SUMOylation,hydroxylation
+	protein-protein_interaction_network
+		Complex_formation sbo:0000526
+		Complex_dissociation	
+		oligomerization go:0051259
+			Homodimerization go:0042803 sbo:0000608		
+	gene_regulatory_networks
+		Regulation_of_transcription
+			Regulation_by_promoter_binding
+			Regulation_without_knowledge_of_promoter_binding
+		Translation
+	compartmentation
+		transport
+			Passive_transport
+			Active_transport
+	indirect_inhibition
+		Inhibition_by_modification
+		Inhibition_by_degradation
+		Inhibition_by_translocation
+		Inhibition_by_binding
+	other_cases
+		Concurrent_stimulation
+tools
+	Gene_Ontology search-url:ebi.ac.uk
+sbgn_bricks_context
+	Anatoly_Sorokin
+	Alexander_Mazein
+editor
+	Newt
+	SBGN-ED plugin-in:VANTED
+	CellDesigner
+database
+	BioModels
+	PANTHER_Pathway
+	Reactome
+	MetaCrop
+	RIMAS
+	WikiPathways
+examples
+	INOS_pathway deabbr:"NO-synthase gene regulation by IFNG"
+sbgn_bricks url:http://sbgn.github.io/sbgn/sbgnbricks,http://sbgnbricks.sourceforge.net start:02.2014?,06.09.2011
+	metabolic_process
+		Irreversible_reaction_with_1_substrate_and_1_product
+		Irreversible_reaction_with_2_substrates_and_1_product
+		Irreversible_reaction_with_1_substrate_and_2_products
+		Irreversible_reaction_with_2_substrates_and_2_products
+		Reversible_reaction_with_1_substrate_and_1_product
+		Reversible_reaction_with_2_substrates_and_1_product
+		Reversible_reaction_with_1_substrate_and_2_products
+		Reversible_reaction_with_2_substrates_and_2_products
+		Catalysis_irreversible_reaction
+		Catalysis_reversible_reaction
+		Catalysis_multiple_substrates_and_products
+		Inhibition_irreversible_metabolic_reaction ; remove 'metabolic' from the name?
+	signalling_process
+		Protein_phosphorylation
+		Protein_phosphorylation_with_side_reactants ; reactants or metabolites or chemicals?
+	protein-protein_interaction_network
+		Complex_formation sbo:0000526
+		Complex_dissociation
+		oligomerization go:0051259
+			Homodimerization go:0042803 sbo:0000608
+	gene_regulatory_networks
+		Regulation_of_transcription
+			Regulation_by_promoter_binding
+			Regulation_without_knowledge_of_promoter_binding
+		Translation
+	compartmentation
+		transport
+			Passive_transport
+			Active_transport	
+project-navigation
+	sbgn
+		diagrams-source
+			Metabolism-regulation url:metabolismregulation.org
+			Reactome url:reactome.org/PathwayBrowser
+		project-urls
+			Translation_rules url:https://pd2af.github.io/rules
+			Examples url:https://pd2af.github.io/examples			
+terms
+	diagram
+		element
+			node
+				active_node
+					regulator
+					substrate
+				nonactive_node
+					nonative_product
+			edge
+		reaction
+			reactant
+				substrate
+				product
+			process
+			regulation
+		pathway
+			metabolic_pathway
+			signaling_pathway		

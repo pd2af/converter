@@ -1,6 +1,6 @@
 #lang racket
 
-(require "../../../../../odysseus/lib/load/all.rkt")
+(require "../../libs/odysseus/lib/load/all.rkt")
 
 (provide (all-defined-out))
 

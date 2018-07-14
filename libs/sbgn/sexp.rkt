@@ -1,6 +1,6 @@
 #lang racket
 
-(require "../../load/all.rkt")
+(require "../odysseus/lib/load/all.rkt")
 (require "common.rkt")
 (require "types.rkt")
 
@@ -169,27 +169,21 @@
       (let* ((p-id ($ id p))
             (p-in-id ($ in-id p))
             (p-out-id ($ out-id p))
-            ; (_ (---  (filter
-            ;             (λ (a) (--- p-in-id a)
-            ;                     (or
-            ;                       (equal? ($ target a) p-in-id)
-            ;                       (equal? ($ target a) p-out-id)))
-            ;             p-arcs)))
             (sources
                     (map
-                      (λ (el) ($ source el))
+                      (λ (el) (car ($ sources el)))
                       (filter
                         (λ (a) (or
-                                  (equal? ($ target a) p-in-id)
-                                  (equal?  ($ target a) p-out-id)))
+                                  (equal? (car ($ targets a)) p-in-id)
+                                  (equal? (car ($ targets a)) p-out-id)))
                         p-arcs)))
             (targets
                     (map
-                      (λ (el) ($ target el))
+                      (λ (el) (car ($ targets el)))
                       (filter
                         (λ (a) (or
-                                  (equal?  ($ source a) p-in-id)
-                                  (equal?  ($ source a) p-out-id)))
+                                  (equal? (car ($ sources a)) p-in-id)
+                                  (equal? (car ($ sources a)) p-out-id)))
                         p-arcs)))
             )
         (pushr res (list sources p-id targets))))))

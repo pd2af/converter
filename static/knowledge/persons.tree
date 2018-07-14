@@ -1,0 +1,198 @@
+person
+	Alexander_Mazein project:SBGN-PD aff:EISBM
+	Anatoly_Sorokin project:SBGN-PD,SBGN-AF,SBGN-ER aff:ICB
+	Mirit_Aladjem project:BioPAX_L3,LibSBGN aff:NCI
+	Ozgun_Babur project:BioPAX_L3,BioPAX_to_SBGN-ML,ChiBE aff:Memorial_Sloan_Kettering_Cancer_Center
+	Gary_D_Bader project:BioPAX_L3,BioPAX_L2,BioPAX_L1,SBGN aff:UToronto
+	Burk_Braun project:BioPAX_L3
+	Michelle_Carillo project:BioPAX_L3
+	Michael_P_Cary project:BioPAX_L3,BioPAX_L2,BioPAX_L1
+	Kei-Hoi_Cheung project:BioPAX_L3
+	Julio_Collado-Vides project:BioPAX_L3
+	Dan_Corwin project:BioPAX_L3,BioPAX_L2
+	Emek_Demir project:BioPAX_L3,BioPAX_L2,BioPAX_L1,SBGN-PD,SBGN-AF,SBGN-ER,ChiBE aff:OregonHSU,Memorial_Sloan_Kettering_Cancer_Center
+	Peter_DEustachio project:BioPAX_L3,BioPAX_L2,Reactome aff:NYULMC
+	Ken_Fukuda project:BioPAX_L3,BioPAX_L2,BioPAX_L1,BioPAX_to_SBGN-ML
+	Marc_Gillespie project:BioPAX_L3,BioPAX_L2,Reactome aff:StJohnsU,OICR
+	Li_Gong project:BioPAX_L3
+	Gopal_Gopinathrao project:BioPAX_L3
+	Nan_Guo project:BioPAX_L3,BioPAX_L2
+	Peter_Hornbeck project:BioPAX_L3
+	Michael_Hucka project:BioPAX_L3,BioPAX_L2,BioPAX_L1,SBML_L1,SBML_L2,BioModels aff:Caltech
+	Olivier_Hubaut project:BioPAX_L3
+	Geeta_Joshi-Tope project:BioPAX_L3,BioPAX_L2
+	Peter_Karp project:BioPAX_L3,BioPAX_L2,BioPAX_L1
+	Shiva_Krupa project:BioPAX_L3
+	Christian_Lemer project:BioPAX_L3,BioPAX_L2
+	Joanne_Luciano project:BioPAX_L3,BioPAX_L2,BioPAX_L1
+	Irma_Martinez-Flores project:BioPAX_L3
+	Zheng_Li project:BioPAX_L3
+	David_Merberg project:BioPAX_L3
+	Huaiyu_Mi project:BioPAX_L3,SBGN-PD,SBGN-AF,SBGN-ER aff:USC
+	Ion_Moraru project:BioPAX_L3
+	Nicolas_Le_Novere project:BioPAX_L3,SBGN-PD,SBGN-AF,SBGN-ER,SBML_L2,MIASE,SB_Format_Converter aff:IBabraham
+	Elgar_Pichler project:BioPAX_L3,BioPAX_L2
+	Suzanne_Paley project:BioPAX_L3,BioPAX_L2,BioPAX_L1
+	Monica_Penaloza-Spinola project:BioPAX_L3
+	Victoria_Petri project:BioPAX_L3
+	Alex_Pico project:BioPAX_L3,PathVisio aff:IGladstone
+	Harsha_Rajasimha project:BioPAX_L3,BioPAX_L2
+	Ranjani_Ramakrishnan project:BioPAX_L3
+	Dean_Ravenscroft project:BioPAX_L3
+	Jonathan_Rees project:BioPAX_L3,BioPAX_L2
+	Liya_Ren project:BioPAX_L3
+	Oliver_Ruebenacker project:BioPAX_L3
+	Alan_Ruttenberg project:BioPAX_L3,BioPAX_L2
+	Matthias_Samwald project:BioPAX_L3
+	Chris_Sander project:BioPAX_L3,BioPAX_L2,BioPAX_L1,ChiBE aff:Memorial_Sloan_Kettering_Cancer_Center
+	Frank_Schacherer project:BioPAX_L3,BioPAX_L2
+	Carl_Schaefer project:BioPAX_L3
+	James_Schaff project:BioPAX_L3
+	Nigam_Shah project:BioPAX_L3
+	Andrea_Splendiani project:BioPAX_L3,BioPAX_L2
+	Paul_Thomas project:BioPAX_L3,SBGN,GO,PANTHER aff:USC_NCCC
+	Imre_Vastrik project:BioPAX_L3,BioPAX_L2
+	Ryan_Whaley project:BioPAX_L3
+	Edgar_Wingender project:BioPAX_L3,BioPAX_L2
+	Guanming_Wu project:BioPAX_L3,BioPAX_L2,Reactome aff:OICR,OregonHSU
+	Jeremy_Zucker project:BioPAX_L3,BioPAX_L2,BioPAX_L1
+	Ewan_Birney project:BioPAX_L2,Reactome aff:EMBL-EBI
+	Kam_Dahlquist project:BioPAX_L2
+	Frank_Gibbons project:BioPAX_L2
+	Eric_Neumann project:BioPAX_L2,BioPAX_L1
+	Andrey_Rzhetsky project:BioPAX_L2,BioPAX_L1
+	Lincoln_Stein project:BioPAX_L2,Reactome aff:OICR
+	Eric_Brauner project:BioPAX_L1
+	Andrew_Finney project:BioPAX_L1,SBML_L1,SBML_L2
+	Robert_Goldberg project:BioPAX_L1
+	Susumu_Goto project:BioPAX_L1
+	Chris_Hogue project:BioPAX_L1
+	Minoru_Kanehisa project:BioPAX_L1
+	Stan_Letovksy project:BioPAX_L1
+	Debbie_Marks project:BioPAX_L1
+	Natalia_Maltsev project:BioPAX_L1
+	Elizabeth_Marland project:BioPAX_L1
+	Peter_Murray-Rust project:BioPAX_L1
+	John_Pick project:BioPAX_L1
+	Aviv_Regev project:BioPAX_L1
+	Vincent_Schachter project:BioPAX_L1
+	Imran_Shah project:BioPAX_L1
+	Mustafa_Syed project:BioPAX_L1
+	Nadia_Anwar project:BioPAX_L3 ; doc_editor
+	Sylva_Donaldson project:BioPAX_L3 ; doc editor
+	Igor_Rodchenkov project:BioPAX_L3 aff:UToronto,BioPAX_to_SBGN-ML; doc editor
+	John_Day-Richter project:OBO_Edit aff:Google
+	Stuart_Moodie project:SBGN-PD,SBGN-AF,SBGN-ER aff:Eight_Pillars
+	Tobias_Czauderna project:SBGN-PD,SBGN-AF,SBGN-ER aff:Monash_University
+	Robin_Haw project:SBGN-PD,SBGN-AF,SBGN-ER,Reactome aff:OICR
+	Augustin_Luna project:SBGN-PD,SBGN-AF,SBGN-ER,LibSBGN,PathVisio aff:DFCI
+	Falk_Schreiber project:SBGN-PD,SBGN-AF,SBGN-ER aff:UKonstanz
+	Alice_Villeger project:SBGN-PD,SBGN-AF,SBGN-ER,Arcadia aff:UClermont,UManchester
+	Arman_Aksoy project:BioPAX_to_SBGN-ML,ChiBE aff:Memorial_Sloan_Kettering_Cancer_Center
+	Benjamin_Gross project:BioPAX_to_SBGN-ML aff:Memorial_Sloan_Kettering_Cancer_Center
+	Hiroaki_Kitano project:AIBO,Robocup,SBML,SBGN aff:Sony,OkinawaIST,Riken_CIMS,SBI
+	John_Doyle project:SBML aff:Caltech
+	Hamid_Bolouri project:SBML aff:Fred_Hutchinson_Cancer_Research_Center
+	Herbert_Sauro project:SBML_L1
+	Dagmar_Kohn project:MIASE
+	Kurt_Kohn project:MIM aff:NCI
+	Minoru_Kanehisa project:KEGG aff:UKyoto
+	Nicolas_Rodriguez project:SB_Format_Converter aff:IBabraham
+	Bijay_Jassal project:Reactome aff:OICR
+	Bruce_May project:Reactome aff:OICR
+	Marija_Orlic-Milacic project:Reactome aff:OICR
+	Karen_Rothfels project:Reactome aff:OICR
+	Solomon_Shorser project:Reactome aff:OICR
+	Joel_Weiser project:Reactome aff:OICR
+	Lisa_Matthews project:Reactome aff:NYULMC
+	Veronica_Shamovsky project:Reactome aff:NYULMC
+	Henning_Hermjakob project:Reactome aff:EMBL-EBI
+	Corina_Duenas project:Reactome aff:EMBL-EBI
+	Antonio_Fabregat project:Reactome aff:EMBL-EBI
+	Steve_Jupe project:Reactome aff:EMBL-EBI
+	Sarah_Keating project:Reactome aff:EMBL-EBI
+	Cristoffer_Sevilla project:Reactome aff:EMBL-EBI
+	Konstantinos_Sidiropoulus project:Reactome aff:EMBL-EBI
+	Guilherme_Viteri project:Reactome aff:EMBL-EBI
+	Fred_Loney project:Reactome aff:OregonHSU
+	Bernard_de_Bono project:Reactome aff:UCLondon
+	Michael_Caudy project:Reactome
+	David_Croft project:Reactome
+	Phani_Garapati project:Reactome
+	Gopal_Gopinath project:Reactome
+	Kerstin_Hausmann project:Reactome
+	Jill_Hemish project:Reactome
+	Geeta_Joshi-Tope project:Reactome
+	Maximilian_Koch project:Reactome
+	Florian_Korninger project:Reactome
+	Shahana_Mahajan project:Reactome
+	Sheldon_McKay project:Reactome
+	Nelson_Ndegwa project:Reactome
+	Elizabeth_Nickerson project:Reactome
+	Gavin_OKelly project:Reactome
+	Carl_Schmidt project:Reactome
+	Esther_Schmidt project:Reactome
+	Heeyeon_Song project:Reactome
+	Imre_Vastrik project:Reactome
+	Marissa_Webber project:Reactome
+	Mark_Williams project:Reactome
+	Florent_Yvon project:Reactome aff:BSC
+	Christina_Yung project:Reactome aff:UChicago-CDIS
+	Haitham_Elmarakeby project:Beacon aff:VirginiaIU
+	Mostafa_Arefiyan project:Beacon aff:VirginiaIU,Google
+	Elijah_Myers project:Beacon aff:VirginiaIU
+	Song_Li project:Beacon aff:VirginiaIU
+	Ruth_Grene project:Beacon aff:VirginiaIU
+	Lenwood_S_Heath project:Beacon aff:VirginiaIU
+	Nick_Juty project:BioModels aff:EMBL-EBI
+	Ugur_Dogrusoz project:SBGN,ChiBE aff:UBilkent-BCB
+	Vasundra_Toure project:SBGN aff:NTNU,URostock,EISBM
+	Igor_Goryanin project:SBGN,Edinburgh_Pathway_Editor aff:UEdin
+	Akira_Funakashi project:SBGN,CellDesigner aff:UKeio
+	Jon_Ison project:EDAM aff:EMBL
+	Matus_Kalas project:EDAM aff:UiB
+	Inge_Jonassen project:EDAM aff:UiB
+	Martijn_Van_Iersel project:PathVisio,CySBGN aff:TOPdesk,WUR
+	Dan_Bolser aff:EBML
+	Steve_Pettifer project:Arcadia aff:UManchester
+	Sarah_Boyd project:LibSBGN aff:UMonash
+	Frank_Bergmann project:LibSBGN aff:Caltech
+	Yukiko_Matsuoka project:LibSBGN,CellDesigner aff:SBI
+	Luca_Beltrame project:BCML aff:Mario_Negri_Institute,UFlorence
+	Martina_Kutmon project:PathVisio aff:UMaastricht
+	Anwesha_Bohler project:PathVisio aff:UMaastricht
+	Thomas_Kelder project:PathVisio aff:"EdgeLeap B.V." city:Utrecht
+	Kristina_Hanspers project:PathVisio aff:IGladstone
+	Douglas_Kell project:PathVisio aff:UManchester
+	Adrien_Rougny aff:AIST
+	Laurence_Calzone aff:ICurie
+	Christine_Froidevaux
+	Loic_Pauleve
+	Dagmar_Waltemath aff:URostock
+	Irina_Balaur aff:EISBM
+	Mansoor_Saqi aff:EISBM
+	Johann_Pellet aff:EISBM
+	Ron_Henkel aff:URostock,HITS
+	Charles_Auffray aff:EISBM
+	Mary_Ann_Liebert project:MAL aff:MAL
+	Torsten_Vogt project:SBGN-ED aff:IPK
+	Tom_Freeman aff:UEMS
+	Jacky_Snoep aff:UStellenbosch,Vrije
+	Akiya_Jouraku project:CellDesigner aff:UKeio
+	Samik_Ghosh project:CellDesigner aff:SBI
+	Norihiro_Kikuchi project:CellDesigner aff:"Mitsui Knowledge Industry Co. Ltd." city:Tokyo
+	Nikolaus_Schultz project:ChiBE aff:Memorial_Sloan_Kettering_Cancer_Center
+	Merve_Sakir project:ChiBE aff:I-Vis
+	Stefan_Hoops project:COPASI aff:Biocomplexity_Institute_of_Virginia_Tech
+	Emanuel_Goncalves project:CySBGN aff:EMBL-EBI
+	Michael Wybrow project:Dunnart aff:UMonash
+	Kirill_Paliy project:Edinburgh_Pathway_Editor aff:EMP_Inc edu:RSTU
+	Alex_Silkov project:Edinburgh_Pathway_Editor aff:EMP_Inc
+	Oleg_Demin project:Edinburgh_Pathway_Editor aff:MSU
+	Zachary_King project:Escher
+	Steven_Watterson aff:UUlster
+	Ismael_Navas_Delgado project:SBMM_Assistant aff:UMalaga
+	Helmut_Baumlein project:RIMAS aff:IPK
+	Enrica_Calura project:BCML aff:UFlorence,UPadua
+	Alan_Rutenberg language:Common_Lisp aff:UBuffalo
+	Matthias_Konig project:SBGN-ML aff:UGottingen

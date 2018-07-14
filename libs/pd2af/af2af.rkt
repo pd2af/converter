@@ -1,11 +1,11 @@
 #lang racket
 
-(require "../lib/load/all.rkt")
-(require "../lib/projects/pd2af/common.rkt")
-(require "../lib/projects/pd2af/types.rkt")
-(require "../lib/projects/pd2af/context.rkt")
-(require "../lib/projects/pd2af/sexp.rkt")
-(require "../lib/projects/pd2af/geometry.rkt")
+(require "../odysseus/lib/load/all.rkt")
+(require "../sbgn/common.rkt")
+(require "../sbgn/types.rkt")
+(require "../sbgn/context.rkt")
+(require "../sbgn/sexp.rkt")
+(require "../sbgn/geometry.rkt")
 (require racket/syntax)
 
 (provide (all-defined-out))

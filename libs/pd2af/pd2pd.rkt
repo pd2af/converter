@@ -1,12 +1,12 @@
 #lang racket
 
-(require "../lib/load/all.rkt")
-(require "../lib/projects/pd2af/common.rkt")
-(require "../lib/projects/pd2af/types.rkt")
-(require "../lib/projects/pd2af/context.rkt")
-(require "../lib/projects/pd2af/sexp.rkt")
-(require "../lib/projects/pd2af/geometry.rkt")
 (require racket/syntax)
+(require "../odysseus/lib/load/all.rkt")
+(require "../sbgn/common.rkt")
+(require "../sbgn/types.rkt")
+(require "../sbgn/context.rkt")
+(require "../sbgn/sexp.rkt")
+(require "../sbgn/geometry.rkt")
 
 (provide (all-defined-out))
 
@@ -175,28 +175,26 @@
 									    ((node nodes))
 									    (let* (
 														(id ($ id node))
-														(in-id ($ in-id node))
-									          (out-id ($ out-id node))
 														(in-nodes-id (flatten
 																						(cleanmap
 																							(map
-																								(λ (arc) (if (or (equal? ($ target arc) in-id) (equal? ($ target arc) out-id))
-																														($ source arc)
+																								(λ (arc) (if (indexof? ($ targets arc) id)
+																														($ sources arc)
 																														#f))
 																								arcs))))
 														(out-nodes-id (flatten
 																						(cleanmap
 																							(map
-																			 					(λ (arc) (if (or (equal? ($ source arc) out-id) (equal? ($ source arc) in-id))
-																														($ target arc)
+																			 					(λ (arc) (if (indexof? ($ sources arc) id)
+																														($ targets arc)
 																														#f))
-																								context))))
+																								arcs))))
 														(new-id (set-id #:prefix (id-prefix ($ class node))))
 														(multiarc (hash-union (hash 'id new-id 'name new-id 'sources in-nodes-id 'targets out-nodes-id 'class ($ class node)) node))
 														(multiarc (hash-delete-all multiarc '(out-id in-id x y w h)))
 														(res-context (exclude res-context node)) ; exclude process node from context
-														(res-context (context-redirect (list id in-id out-id) new-id res-context)) ; redirect all references in the context onto the 'new-id'
-														(res-sexp (subst-ids (list id out-id in-id) new-id res-sexp)) ; substitute all references to old process node on references on the new multiarc
+														(res-context (context-redirect (list id) new-id res-context)) ; redirect all references in the context onto the 'new-id'
+														(res-sexp (subst-ids (list id) new-id res-sexp)) ; substitute all references to old process node on references on the new multiarc
 														(res-context (pushr res-context multiarc)) ; add new multiarc to context
 														(res-sexp (filter-not
 																				(λ (triplet)
